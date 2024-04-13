@@ -38,3 +38,4 @@ function leerExcel(ruta) {
 leerExcel('excel/baseDatosExcel.xlsx');
 
 // Eventos
+console.log('Agregamos esta línea como prueba');
