@@ -1,6 +1,16 @@
 // Definición de Variables
 
+const express = require('express');
+const app = express();
+
+app.use('/js', express.static(__dirname + '/excelJavaScript/js'));
+
 const xlsx = require('xlsx');
+const form1 = document.getElementById('formulario1');
+let usuario = form1.usuario;
+let contrasena = form1.contrasena;
+console.log(usuario); 
+
 let data = [
     {
         Nombre: 'Juan',
@@ -38,4 +48,3 @@ function leerExcel(ruta) {
 leerExcel('excel/baseDatosExcel.xlsx');
 
 // Eventos
-console.log('Agregamos esta línea como prueba');

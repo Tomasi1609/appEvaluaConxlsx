@@ -20,7 +20,7 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: #1995ad 0px 60px 100px 10px;
-    min-height: 60vh;
+    min-height: 40vh;
     gap: 1px;
     grid-template-columns: 1fr;
     grid-template-rows: 90px,
@@ -56,7 +56,7 @@ header h1 {
 header img {
     float: right;
     width: 12%;
-    height: 60px;
+    height: 80px;
     margin: auto 5px;
     padding: 10px 10px;
 }
@@ -100,22 +100,6 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transform: rotate(-1.0deg);
-}
-
-.regisOlvido {
-    display: flex;
-    width: 50%;
-    height: 25px;
-}
-
-.registrate {
-    float: left;
-    margin: 0 auto;
-    
-}
-
-.olvidaste {
-    float: right;
 }
 
 footer {
