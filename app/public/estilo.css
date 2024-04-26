@@ -80,7 +80,7 @@ input {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 100%;
     width: 230px;
-    padding: 0;
+    padding: 5px 10px;
     margin: 2%;
     box-sizing: border-box;
     border-radius: 5px 5px;
@@ -94,7 +94,7 @@ input.focus {
 button {
     width: 130px;
     margin: 12px 25%;
-    padding: 4px 10px;
+    padding: 5px 10px;
     font: bold 0.8em sans-serif;
     border: 3px solid #86ac41;
     border-radius: 5px;
@@ -113,3 +113,11 @@ footer {
 }
 
 
+.sr-only {
+    position: absolute;
+    left: 10000px;
+    top:auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
