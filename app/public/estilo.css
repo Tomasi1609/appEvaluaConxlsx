@@ -113,6 +113,14 @@ footer {
 }
 
 
+.error {
+    color: rgb(246, 107, 107);
+}
+
+.escondido {
+    display: none;
+}
+
 .sr-only {
     position: absolute;
     left: 10000px;

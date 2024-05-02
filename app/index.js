@@ -1,11 +1,14 @@
-// LLamo la libreria express
+// LLamo a las librerias 
 import express from 'express';
-import xlsx from 'xlsx';
+import xlsxPopulate from 'xlsx-populate';
+
 
 // Arreglar __dirname
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { methods as authentication } from './controllers/authentication.controller.js';
+
 
 
 // Servidor
@@ -17,7 +20,9 @@ console.log('Servidor corriendo en el puerto', app.get('port'));
 
 // Configuración
 app.use(express.static(__dirname + '/public'));
+app.use(express.json());
 
 // Rutas
 app.get('/', (req, res) => res.sendFile(__dirname + '/pages/login.html'));
-app.get('/admin.html', (req, res) => res.sendFile(__dirname + '/pages/admin/admin.html'));
+app.get('/admin', (req, res) => res.sendFile(__dirname + '/pages/admin/admin.html'));
+app.post('/api/login', authentication.login);

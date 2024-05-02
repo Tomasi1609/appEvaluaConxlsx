@@ -1,45 +1,27 @@
-// Definición de Variables
-// import xlsx from 'xlsx';
-
-// const xlsx = require('xlsx');
+const mensajeError = document.getElementsByClassName('error')[0];
 
 
-
-let data = [
-    {
-        Nombre: 'Juan',
-        Edad: 30,
-        ciudad: 'Madrid'
-    },
-    {
-        Nombre: 'María',
-        Edad: 25,
-        ciudad: 'Barcelona'
-    },
-    {
-        Nombre: 'Pedro',
-        Edad: 35,
-        ciudad: 'Valencia'
+document.getElementById("formulario1").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const user = e.target.children.usuario.value;
+    const password = e.target.children.contrasena.value;
+    try {
+        const res = await fetch('http://localhost:4100/api/login', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify ({
+                user, password
+            })
+        })
+        if (!res.ok) return mensajeError.classList.toggle('escondido', false);
+        const resJson = await res.json();
+        if (resJson.redirect) {
+            window.location.href = resJson.redirect;
+        }
+    } catch(error) {
+        console.error('Aquí hay un error: ' + error.message);
     }
-]
-
-
-// Funciones
-// function leerExcel(ruta) {
-//     const libroWork = xlsx.readFile(ruta);
-//     const hojaLibroWork = libroWork.SheetNames;
-
-   // console.log(hojaLibroWork);
-//    const hoja = hojaLibroWork[0];
-//     const dataExcel = xlsx.utils.sheet_to_json(libroWork.Sheets[hoja]);
     
-    // console.log(dataExcel);
-  /*let creaHojaOpciones = xlsx.utils.json_to_sheet(data);
-    xlsx.utils.book_append_sheet(libroWork, creaHojaOpciones, 'Hoja03');
-    xlsx.writeFile(libroWork, ruta);*/
-// }   
-
-// leerExcel('excel/baseDatosExcel.xlsx');
-
-// Eventos
-
+}); 
