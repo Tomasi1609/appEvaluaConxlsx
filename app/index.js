@@ -1,6 +1,6 @@
 // LLamo a las librerias 
 import express from 'express';
-import xlsxPopulate from 'xlsx-populate';
+import xlsx from 'xlsx';
 
 
 // Arreglar __dirname
